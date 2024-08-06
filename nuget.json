@@ -1,0 +1,51 @@
+{
+  "NugetItems": [
+    {
+      "NugetKey": "9c922b9d-16f2-3ccf-9a3a-1f15cf72d0fb",
+      "NugetSource": "http://192.168.1.120:8081/repository/nuget-hosted",
+      "Mode": 2
+    },
+    {
+      "NugetKey": "oy2a3h7grjs3lmzmpc5qsja3ml7ogf2uderhn5cvkljphq",
+      "NugetSource": "https://api.nuget.org/v3/index.json",
+      "Mode": 2
+    }
+  ],
+  "NugetIndex": 0,
+  "IsGitCommit": true,
+  "Projects": [
+    "src\\TinyFx\\TinyFx.csproj",
+    "src\\TinyFx.AspNet\\TinyFx.AspNet.csproj",
+    "src\\TinyFx.AspNet.Hosting\\TinyFx.AspNet.Hosting.csproj",
+    "src\\TinyFx.BIZ.DataSplit\\TinyFx.BIZ.DataSplit.csproj",
+    "src\\TinyFx.BIZ.DataSplit.JOB\\TinyFx.BIZ.DataSplit.JOB.csproj",
+    "src\\TinyFx.BIZ.RabbitMQ\\TinyFx.BIZ.RabbitMQ.csproj",
+    "src\\TinyFx.Data.MySql\\TinyFx.Data.MySql.csproj",
+    "src\\TinyFx.Data.SqlSugar\\TinyFx.Data.SqlSugar.csproj",
+    "src\\TinyFx.DbCaching\\TinyFx.DbCaching.csproj",
+    "src\\TinyFx.Extensions.AppMetric\\TinyFx.Extensions.AppMetric.csproj",
+    "src\\TinyFx.Extensions.AutoMapper\\TinyFx.Extensions.AutoMapper.csproj",
+    "src\\TinyFx.Extensions.AWS\\TinyFx.Extensions.AWS.csproj",
+    "src\\TinyFx.Extensions.CommandLineParser\\TinyFx.Extensions.CommandLineParser.csproj",
+    "src\\TinyFx.Extensions.DotNetty\\TinyFx.Extensions.DotNetty.csproj",
+    "src\\TinyFx.Extensions.EPPlus\\TinyFx.Extensions.EPPlus.csproj",
+    "src\\TinyFx.Extensions.Nacos\\TinyFx.Extensions.Nacos.csproj",
+    "src\\TinyFx.Extensions.RabbitMQ\\TinyFx.Extensions.RabbitMQ.csproj",
+    "src\\TinyFx.Extensions.Serilog\\TinyFx.Extensions.Serilog.csproj",
+    "src\\TinyFx.Extensions.SshNet\\TinyFx.Extensions.SshNet.csproj",
+    "src\\TinyFx.Extensions.StackExchangeRedis\\TinyFx.Extensions.StackExchangeRedis.csproj",
+    "src\\TinyFx.HCaptcha\\TinyFx.HCaptcha.csproj",
+    "src\\TinyFx.Hosting\\TinyFx.Hosting.csproj",
+    "src\\TinyFx.IP2Country\\TinyFx.IP2Country.csproj",
+    "src\\TinyFx.OAuth\\TinyFx.OAuth.csproj",
+    "src\\TinyFx.SnowflakeId\\TinyFx.SnowflakeId.csproj"
+  ],
+  "VsixItem": {
+    "ProjectPath": null,
+    "VsixPath": null,
+    "ConfigPath": null,
+    "Token": "3twuo3jaffjjlqjzbn66ijxcma2qffswyt7ajekwnnsg62jbewgq",
+    "PublisherExePath": null,
+    "MSBuildExePath": null
+  }
+}

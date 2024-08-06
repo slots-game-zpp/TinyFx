@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\TinyFx.BIZ.RabbitMQ\TinyFx.BIZ.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\..\src\TinyFx.Extensions.RabbitMQ\TinyFx.Extensions.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\..\src\TinyFx.Hosting\TinyFx.Hosting.csproj" />
+    <ProjectReference Include="..\MQDemoLib\MQDemoLib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

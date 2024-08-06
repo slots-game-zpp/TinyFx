@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Description>AspNet Hosting启动服务</Description>
+    <Version>3.17.49</Version>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Diagnostics.NETCore.Client" Version="0.2.510501" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinyFx.AspNet\TinyFx.AspNet.csproj" />
+    <ProjectReference Include="..\TinyFx.HCaptcha\TinyFx.HCaptcha.csproj" />
+    <ProjectReference Include="..\TinyFx.Hosting\TinyFx.Hosting.csproj" />
+    <ProjectReference Include="..\TinyFx.OAuth\TinyFx.OAuth.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,90 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+// 代码生成器生成，请不要修改
+// Engine:      <#= AssemblyName #> v<#= Version #>
+// Date:        <#= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") #>
+// Description: <#= Data.Description #>
+
+import $root from './<#= Data.Package #>-proto.js';
+
+interface IXWebSocket {
+  register(cmdid: number, onmessage: { callback: Function, target: any }): void
+  remove(cmdid: number, target?: any): void
+  send(cmdid: number, req: Uint8Array): void
+}
+
+let CMDS_SOCKET: IXWebSocket;
+export function init(socket: IXWebSocket) {
+  CMDS_SOCKET = socket;
+}
+
+/** 服务器Push基类 */
+abstract class PushCommandBase<TRsp>{
+  public commandId: number;
+  public get socket(): IXWebSocket {
+    return CMDS_SOCKET;
+  }
+  protected abstract decode(data: Uint8Array): TRsp;
+  public register(callback: (rsp: TRsp) => void, target: any): void {
+    this.socket.register(this.commandId, {
+      callback: (data: Uint8Array) => {
+        var rspObj = this.decode(data);
+        callback(rspObj);
+      }, target: target
+    });
+  }
+  public remove(target?: any): void {
+    this.socket.remove(this.commandId, target);
+  }
+}
+
+/** 远程调用RPC基类 */
+abstract class RpcCommandBase<TReq, TRsp> extends PushCommandBase<TRsp>{
+  protected abstract encode(req: TReq): Uint8Array;
+  public send(req?: TReq): void {
+    let data: Uint8Array;
+    if (req) {
+      data = this.encode(req);
+    }
+    this.socket.send(this.commandId, data);
+  }
+}
+
+<# foreach(var cmd in Data.RpcCommands) { #>
+<#= GetCommandDescription(cmd) #>
+class <#= cmd.CommandName #> extends RpcCommandBase<$root.<#= cmd.RequestName=="object"?"object":$"I{cmd.RequestName}" #>, $root.I<#= cmd.ResponseName #>> {
+  public commandId: number = <#= cmd.CommandId #>;
+  protected encode(req: $root.<#= cmd.RequestName #>): Uint8Array {
+<# if(cmd.RequestName=="object") { #>
+    return null;
+<# } else { #>
+    return $root.<#= cmd.RequestName #>.encode(req).finish();
+<# } #>
+  }
+  protected decode(data: Uint8Array): $root.<#= cmd.ResponseName #> {
+<# if(cmd.ResponseName=="object") { #>
+    return $root.ProtoResponse.decode(data);
+<# } else { #>
+    return $root.<#= cmd.ResponseName #>.decode(data);
+<# } #>
+  }
+}
+<#= GetCommandDescription(cmd) #>
+export let <#= cmd.CommandNameVar #> = new <#= cmd.CommandName #>();
+
+<# } #>
+<# foreach(var cmd in Data.PushCommands) { #>
+<#= GetCommandDescription(cmd) #>
+class <#= cmd.CommandName #>Cmd extends PushCommandBase<$root.I<#= cmd.ResponseName #>> {
+  public commandId: number = <#= cmd.CommandId #>;
+  protected decode(data: Uint8Array): $root.<#= cmd.ResponseName #> {
+    return $root.<#= cmd.ResponseName #>.decode(data);
+  }
+}
+<#= GetCommandDescription(cmd) #>
+export let <#= cmd.CommandNameVar #>Cmd = new <#= cmd.CommandName #>Cmd();
+
+<# } #>

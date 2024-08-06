@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Description>数据库和redis同步的内存缓存库</Description>
+    <Version>3.17.49</Version>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinyFx.Data.SqlSugar\TinyFx.Data.SqlSugar.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.RabbitMQ\TinyFx.Extensions.RabbitMQ.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.StackExchangeRedis\TinyFx.Extensions.StackExchangeRedis.csproj" />
+  </ItemGroup>
+</Project>

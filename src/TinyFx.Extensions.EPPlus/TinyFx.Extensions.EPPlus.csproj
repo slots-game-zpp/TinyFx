@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Description>EPPlus封装</Description>
+    <Version>3.17.49</Version>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="6.2.18" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinyFx.Data.SqlSugar\TinyFx.Data.SqlSugar.csproj" />
+  </ItemGroup>
+</Project>

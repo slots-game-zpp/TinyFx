@@ -1,0 +1,32 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+// 代码生成器生成，请不要修改
+// Engine:      <#= AssemblyName #> v<#= Version #>
+// Date:        <#= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") #>
+// Description: <#= Data.Description #>
+
+syntax = "proto3";
+
+<# if (!string.IsNullOrEmpty(Data.PackageName)){ #>package <#= Data.PackageName #>;<# } #>
+
+<# foreach(var msg in Data.Messages) { #>
+/**
+<#= GetMessageDescription(msg) #>
+ */
+<# if (msg.IsEnum){ #>
+enum <#= msg.Name #> {
+<# foreach(var field in msg.Fields) { #>
+	<#= field.Name #> = <#= field.Tag #>; <#= GetFieldDescription(field) #>
+<# } #>
+}
+<# } else { #>
+message <#= msg.Name #> {
+<# foreach(var field in msg.Fields) { #>
+	<#= field.TypeString #> <#= field.Name #> = <#= field.Tag #>; <#= GetFieldDescription(field) #>
+<# } #>
+}
+<# } #>
+<# } #>

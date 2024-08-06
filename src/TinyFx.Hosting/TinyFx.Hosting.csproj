@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Description>Console Hosting启动服务</Description>
+    <Version>3.17.49</Version>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinyFx.Data.SqlSugar\TinyFx.Data.SqlSugar.csproj" />
+    <ProjectReference Include="..\TinyFx.DbCaching\TinyFx.DbCaching.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.AppMetric\TinyFx.Extensions.AppMetric.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.AutoMapper\TinyFx.Extensions.AutoMapper.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.AWS\TinyFx.Extensions.AWS.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.Nacos\TinyFx.Extensions.Nacos.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.RabbitMQ\TinyFx.Extensions.RabbitMQ.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.Serilog\TinyFx.Extensions.Serilog.csproj" />
+    <ProjectReference Include="..\TinyFx.Extensions.StackExchangeRedis\TinyFx.Extensions.StackExchangeRedis.csproj" />
+    <ProjectReference Include="..\TinyFx.IP2Country\TinyFx.IP2Country.csproj" />
+    <ProjectReference Include="..\TinyFx.SnowflakeId\TinyFx.SnowflakeId.csproj" />
+  </ItemGroup>
+</Project>
